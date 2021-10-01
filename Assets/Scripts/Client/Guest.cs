@@ -32,7 +32,7 @@ namespace Game.Client
 			int serverPort = CommandLineParser.GetInt("serverPort", 39999);
 			int port = CommandLineParser.GetInt("port", 39999);
 			
-			string address = CommandLineParser.GetString("host");
+			string address = CommandLineParser.GetString("address");
             
 			netManager = new NetManager(this)
 			{
@@ -64,7 +64,15 @@ namespace Game.Client
 			// netManager.Start(port);
 			// host = netManager.Connect(address, serverPort, "Guest");
 
-			host = netManager.Connect(new IPEndPoint(IPAddress.Parse("192.168.0.22"), serverPort), "Guest");
+			try
+			{
+				host = netManager.Connect(new IPEndPoint(IPAddress.Parse(address), serverPort), "Guest");
+			}
+			catch (Exception e)
+			{
+				Debug.LogError(address);
+				Debug.LogException(e);
+			}
 		}
 
 		private void Update()

@@ -82,7 +82,7 @@ namespace Game.Shared.CommandLine
 
         private CommandLineParser()
         {
-            Debug.LogError(Environment.CommandLine);
+            // Debug.LogError(Environment.CommandLine);
 #if UNITY_EDITOR
             LoadFromSetting();
 #else            

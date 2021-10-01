@@ -10,7 +10,6 @@ namespace Game.Shared.Util
 		{
 			int sceneIndex = CommandLineParser.GetInt("scene", 1);
 			
-			Debug.LogError(sceneIndex);
 			SceneManager.LoadScene(sceneIndex);
 		}
 	}
