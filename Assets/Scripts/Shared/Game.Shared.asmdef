@@ -1,0 +1,16 @@
+{
+    "name": "Game.Shared",
+    "rootNamespace": "Game.Shared",
+    "references": [
+        "GUID:9e3426884dda70547ad09bcf9d0705c3"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
