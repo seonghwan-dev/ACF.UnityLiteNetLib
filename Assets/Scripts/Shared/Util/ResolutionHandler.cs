@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Game.Shared.Util
 {
-	using CommandLine;
+	using Calci.CommandLine;
 	
 	public class ResolutionHandler : MonoBehaviour
 	{

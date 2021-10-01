@@ -1,4 +1,4 @@
-using Game.Shared.CommandLine;
+using Calci.CommandLine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

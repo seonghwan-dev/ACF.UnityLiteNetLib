@@ -8,10 +8,10 @@ using LiteNetLib.Utils;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 using Random = UnityEngine.Random;
+using Calci.CommandLine;
 
 namespace Game.Client
 {
-	using Shared.CommandLine;
 	using Shared.Enums;
 
 	public class Guest : MonoBehaviour, INetEventListener

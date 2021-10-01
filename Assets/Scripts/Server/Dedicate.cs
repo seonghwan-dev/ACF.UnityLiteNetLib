@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Game.Server
 {
-    using Shared.CommandLine;
+    using Calci.CommandLine;
     using Shared.Enums;
     
     public class Dedicate : MonoBehaviour, INetEventListener

@@ -3,7 +3,8 @@
     "rootNamespace": "Game.Server",
     "references": [
         "GUID:a7e3730a0ffc09042a37a2639f4da1ae",
-        "GUID:9e3426884dda70547ad09bcf9d0705c3"
+        "GUID:9e3426884dda70547ad09bcf9d0705c3",
+        "GUID:acd6312653d6c374e8ccbc0f497dc13c"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
