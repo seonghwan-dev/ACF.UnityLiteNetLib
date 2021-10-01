@@ -1,10 +1,13 @@
 # ACF.UnityLiteNetLib
 ACF 작업을 위한 LiteNetLib 구현 간단 테스트 프로젝트 (UDP Chat)
+Simple LiteNetLib implementation test project for ACF(My Private Project).
 
 ## QuickStart
 1. clone repository
 2. open project with compatible unity editor
 3. modify command line options in `Assets/Editor Default Resources`.
+  - you can edit this in `Project Settings/Command Line`
+  - this options for editor only.
 4. Build
 5. Create `client.bat` and `server.bat`
 
