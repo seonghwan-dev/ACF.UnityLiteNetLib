@@ -1,6 +1,6 @@
 # ACF.UnityLiteNetLib
-ACF 작업을 위한 LiteNetLib 구현 간단 테스트 프로젝트 (UDP Chat)
-Simple LiteNetLib implementation test project for ACF(My Private Project).
+ACF 작업을 위한 LiteNetLib 구현 간단 테스트 프로젝트 (UDP Chat)  
+Simple LiteNetLib implementation test project for ACF(My Private Project).  
 
 ## QuickStart
 1. clone repository
