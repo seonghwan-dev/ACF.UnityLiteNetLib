@@ -8,20 +8,12 @@ namespace Game.Server.UI
 		public Text m_senderText;
 		public Text m_messageText;
 
-		public void SetContent(long sender, string message)
+		public void SetContent(long sender, string message, Color color)
 		{
 			m_senderText.text = $" [User{sender}] : ";
 			m_messageText.text = message;
-			m_senderText.color = Color.black;
 			
-			LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)transform);
-		}
-
-		public void SetSentMessage(string message)
-		{
-			m_senderText.text = " [Me] : ";
-			m_messageText.text = message;
-			m_senderText.color = Color.green;
+			m_senderText.color = color;
 			
 			LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)transform);
 		}

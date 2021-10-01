@@ -18,13 +18,15 @@ namespace Game.Server
         private NetManager netManager = default;
         private NetDataWriter netDataWriter = new NetDataWriter();
         
-        private readonly Dictionary<int, NetPeer> connections = new Dictionary<int, NetPeer>();
+        private readonly Dictionary<int, NetPeer> peerConnections = new Dictionary<int, NetPeer>();
         
         private readonly Dictionary<long, int> userPeerMap = new Dictionary<long, int>();
         private readonly Dictionary<int, long> peerUserMap = new Dictionary<int, long>();
         
         public event Action<long, string> onChatRequest = delegate(long sender, string s) {  };
-        public event Action<long> onConnected = delegate(long l) {  };
+        
+        public event Action<long> onHandshake = delegate(long l) {  };
+        public event Action<long> onConnectionLost = delegate(long l) {  };
 
         public int port;
 
@@ -51,13 +53,23 @@ namespace Game.Server
 
         public void OnPeerConnected(NetPeer peer)
         {
-            connections.Add(peer.Id, peer);
-            onConnected(peer.Id);
+            peerConnections.Add(peer.Id, peer);
+            
+            Debug.Log($"New Peer : {peer.Id}");
         }
 
         public void OnPeerDisconnected(NetPeer peer, DisconnectInfo disconnectInfo)
         {
-            connections.Remove(peer.Id);
+            Debug.Log($"Outdated Peer : {peer.Id}");
+            
+            peerConnections.Remove(peer.Id);
+
+            long userId = peerUserMap[peer.Id];
+
+            peerUserMap.Remove(peer.Id);
+            userPeerMap.Remove(userId);
+
+            onConnectionLost(userId);
         }
 
         public void OnNetworkError(IPEndPoint endPoint, SocketError socketError)
@@ -67,8 +79,6 @@ namespace Game.Server
 
         public void OnNetworkReceive(NetPeer peer, NetPacketReader reader, DeliveryMethod deliveryMethod)
         {
-            Debug.Log("OnReceive");
-            
             EPacketType packetType = (EPacketType)reader.GetShort();
 
             if (packetType == EPacketType.HANDSHAKE)
@@ -78,12 +88,10 @@ namespace Game.Server
                 userPeerMap[clientId] = peer.Id;
                 peerUserMap[peer.Id] = clientId;
                 
-                Debug.Log("OnHandShake");
+                onHandshake(clientId);
             }
             else if (packetType == EPacketType.REQUEST)
             {
-                Debug.Log("OnRequest");
-                
                 ERequestType requestType = (ERequestType)reader.GetInt();
                 if (requestType == ERequestType.SendChatRequest)
                 {
@@ -125,11 +133,11 @@ namespace Game.Server
 
         private void BroadcastEx(int excludePeerId)
         {
-            foreach (int peerId in connections.Keys)
+            foreach (int peerId in peerConnections.Keys)
             {
                 if (peerId == excludePeerId) continue;
 
-                NetPeer peer = connections[peerId];
+                NetPeer peer = peerConnections[peerId];
                 peer.Send(netDataWriter, DeliveryMethod.Sequenced);
             }
         }
