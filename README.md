@@ -23,3 +23,4 @@ Build\LiteNetChat.exe --scene=2 --address=127.0.0.1 --port=29400 --serverPort=29
 - `-port` : client listening port  
 - `-serverPort` : server listening port  
 
+![image](https://user-images.githubusercontent.com/79823287/135565993-a9ec01aa-7f35-44f7-a31b-b1699518944e.png)
