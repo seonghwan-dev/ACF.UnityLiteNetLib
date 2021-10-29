@@ -11,38 +11,29 @@
 	public enum ERequestType : int
 	{
 		SendChatRequest,
+		MoveToRequest,
 	}
 
 	public enum EResponseType : int
 	{
-		
+		MoveToResponse,
 	}
 
 	public enum EBroadcastType : int
 	{
-		ChatBroadcast
+		ChatBroadcast,
+		
+		BEGIN_MOVE,
+		MOVING,
+		END_MOVE,
+		
+		SpawnCharacter,
+		DestroyCharacter,
 	}
 
-	public static class PacketTypeExtension
+	public enum EDieReason : int
 	{
-		public static short ToShort(this EPacketType packetType)
-		{
-			return (short)packetType;
-		}
-		
-		public static int ToInt(this EBroadcastType packetType)
-		{
-			return (int)packetType;
-		}
-		
-		public static int ToInt(this ERequestType packetType)
-		{
-			return (int)packetType;
-		}
-		
-		public static int ToInt(this EResponseType packetType)
-		{
-			return (int)packetType;
-		}
+		Undefined,
+		Disconnected,
 	}
 }

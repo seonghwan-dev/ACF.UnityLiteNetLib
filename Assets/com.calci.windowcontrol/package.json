@@ -1,0 +1,30 @@
+{
+  "name": "com.calci.windowcontrol",
+  "version": "1.0.0",
+  "displayName": "Window Control",
+  "unity": "2019.3",
+  "unityRelease": "0f1",
+  "documentationUrl": "https://github.com/seonghwan-dev/Window-Control/wiki",
+  "changelogUrl": "https://github.com/seonghwan-dev/Window-Control/blob/main/CHANGELOG.md",
+  "licenseUrl": "https://github.com/seonghwan-dev/Window-Control/blob/main/LICENSE",
+  "author": {
+    "name": "Seonghwan",
+    "email": "seonghwan@pm.me",
+    "url": "https://github.com/seonghwan-dev"
+  },
+  "homepage": "https://github.com/seonghwan-dev/Window-Control",
+  "bugs": {
+    "url": "https://github.com/seonghwan-dev/Window-Control/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com:seonghwan-dev/Window-Control.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "shadergraph",
+    "shortcut",
+    "utility",
+    "unity"
+  ]
+}
